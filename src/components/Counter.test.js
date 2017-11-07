@@ -17,4 +17,12 @@ describe('Counter component', () => {
     wrapper.find('.incrementButton').simulate('click')
     expect(increment).toHaveBeenCalled()
   })
+  it('calls incrementAsync callback when incrementAsync button is clicked', () => {
+    const incrementAsync = jest.fn()
+    const wrapper = shallow(
+      <Counter counter={1} incrementAsync={incrementAsync} />
+    )
+    wrapper.find('.incrementAsyncButton').simulate('click')
+    expect(incrementAsync).toHaveBeenCalled()
+  })
 })
